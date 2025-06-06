@@ -1,16 +1,16 @@
-# 🌤️📈 LangGraph Multi-Agent Assistant
+# LangGraph Multi-Agent Assistant
 
 A command-line assistant powered by **LangGraph**, **LangChain**, and **Google Gemini**, capable of:
 
-- 🌤️ Answering weather queries (via OpenWeatherMap)
-- 📈 Getting live stock prices (via yfinance)
-- 📰 Summarizing financial news and general topics (via Gemini)
-- 🧠 Smart routing using an LLM-based router agent
-- 🔁 Flow control using LangGraph
+- Answering weather queries (via OpenWeatherMap)
+- Getting live stock prices (via yfinance)
+- Summarizing financial news and general topics (via Gemini)
+- Smart routing using an LLM-based router agent
+- Flow control using LangGraph
 
 ---
 
-## 🧠 Features
+## Features
 
 - LLM-powered company/topic/city extraction (no hardcoding)
 - Multi-agent routing via LangGraph
@@ -19,7 +19,7 @@ A command-line assistant powered by **LangGraph**, **LangChain**, and **Google G
 
 ---
 
-## 📦 Tech Stack
+## Tech Stack
 
 - [`LangGraph`](https://github.com/langchain-ai/langgraph)
 - [`LangChain`](https://github.com/langchain-ai/langchain)
@@ -30,7 +30,7 @@ A command-line assistant powered by **LangGraph**, **LangChain**, and **Google G
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the repo
 
@@ -54,7 +54,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🔑 API Keys Setup
+## API Keys Setup
 
 Create a `.env` file in the project root:
 
@@ -63,12 +63,12 @@ GOOGLE_API_KEY=your_google_gemini_key
 OPENWEATHER_API_KEY=your_openweathermap_key
 ```
 
-- 🔐 Get your Gemini API key from **[Google AI Studio](https://makersuite.google.com/app/apikey)** (previously MakerSuite)
-- 🌦️ Get a free API key at [OpenWeatherMap](https://home.openweathermap.org/users/sign_up)
+- Get your Gemini API key from **[Google AI Studio](https://makersuite.google.com/app/apikey)** (previously MakerSuite)
+- Get a free API key at [OpenWeatherMap](https://home.openweathermap.org/users/sign_up)
 
 ---
 
-## ▶️ How to Run
+## How to Run
 
 ```bash
 python main.py
@@ -77,7 +77,7 @@ python main.py
 You'll see:
 
 ```
-🧠 Welcome to the LangGraph Multi-Agent Assistant!
+Welcome to the LangGraph Multi-Agent Assistant!
 Type 'exit' to quit.
 ```
 
@@ -90,7 +90,7 @@ Try queries like:
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 weather-stock-assistant/
@@ -114,7 +114,7 @@ weather-stock-assistant/
 
 ---
 
-## 🛠 How It Works
+## How It Works
 
 - The `router_agent` uses Gemini to classify intent (weather, stock, news)
 - LangGraph routes to the correct agent based on that intent
@@ -125,16 +125,16 @@ weather-stock-assistant/
 
 ---
 
-## 💡 Future Plans
+## Future Plans
 
-- 🌐 Add a Streamlit UI
-- 📰 Pull real news via RSS or Google News APIs
-- 📊 Analyze how weather patterns affect stock prices
-- 🧠 Extend LangGraph flow with memory or RAG
+- Add a Streamlit UI
+- Pull real news via RSS or Google News APIs
+- Analyze how weather patterns affect stock prices
+- Extend LangGraph flow with memory or RAG
 
 ---
 
-## 🙌 Credits
+## Credits
 
 Built with:
 - LangChain + LangGraph
