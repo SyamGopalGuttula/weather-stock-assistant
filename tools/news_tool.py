@@ -7,9 +7,6 @@ load_dotenv()
 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
-if not GOOGLE_API_KEY:
-    raise ValueError("Google API key is missing from .env")
-
 llm = ChatGoogleGenerativeAI(
     model="gemini-1.5-flash",
     temperature=0.7,
@@ -26,8 +23,7 @@ Return a concise summary in plain English.
 
 def summarize_news(company: str, headlines: list[str]) -> str:
     chain = prompt | llm
-    input_text = {
+    return chain.invoke({
         "company": company,
         "headlines": "\n".join(headlines)
-    }
-    return chain.invoke(input_text)
+    })

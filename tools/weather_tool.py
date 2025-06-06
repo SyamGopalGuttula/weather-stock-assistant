@@ -7,6 +7,7 @@ load_dotenv()
 OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
 
 def get_weather(city: str) -> str:
+    city = city.strip().title()  # Normalize formatting
     if not OPENWEATHER_API_KEY:
         return "Missing OpenWeatherMap API key."
 
@@ -21,4 +22,4 @@ def get_weather(city: str) -> str:
     temp = data["main"]["temp"]
     feels_like = data["main"]["feels_like"]
 
-    return f"The weather in {city} is {weather} with a temperature of {temp}°C (feels like {feels_like}°C)."
+    return f"The current weather in {city} is {weather} with a temperature of {temp}°C (feels like {feels_like}°C)."
