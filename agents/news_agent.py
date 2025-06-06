@@ -10,30 +10,29 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=GOOGLE_API_KEY)
 
-# Prompt to extract company name
+# Prompt to extract topic
 prompt = PromptTemplate.from_template("""
-Extract the company name or stock name mentioned in the user query.
+Extract the main topic of interest from the user's query. This could be a company, country, sector, or keyword.
 
 Query: {query}
 
-Only return the company name. If you can't find one, return "Unknown".
+Return only the topic name. If you can't find any, return "Unknown".
 """)
+
 
 extract_chain = prompt | llm
 
 def news_agent_logic(user_query: str) -> str:
-    company = extract_chain.invoke({"query": user_query}).content.strip().title()
-    if company.lower() == "unknown":
-        return "Sorry, I couldn't identify the company you're asking about."
+    topic = extract_chain.invoke({"query": user_query}).content.strip().title()
+    if topic.lower() == "unknown":
+        return "Sorry, I couldn't identify the topic you're asking about."
 
-    # Simulated headlines for now
     headlines = [
-        f"{company} stock rises after strong earnings",
-        f"{company} announces new AI product",
-        f"Analysts upgrade {company} to 'Buy'"
+        f"{topic} sees global attention amid market shifts",
+        f"Experts weigh in on recent developments in {topic}",
+        f"{topic} becomes focus in latest economic report"
     ]
 
-    summary = summarize_news(company, headlines)
-    return summary.content.strip() if hasattr(summary, "content") else summary
+    return summarize_news(topic, headlines)
 
 news_agent = RunnableLambda(news_agent_logic)

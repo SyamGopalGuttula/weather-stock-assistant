@@ -14,16 +14,18 @@ llm = ChatGoogleGenerativeAI(
 )
 
 prompt = PromptTemplate.from_template("""
-You are a financial analyst. Summarize the following financial news headlines about {company}:
+You are a financial analyst. Summarize the following financial news headlines about {topic}:
 
 {headlines}
 
 Return a concise summary in plain English.
 """)
 
-def summarize_news(company: str, headlines: list[str]) -> str:
+def summarize_news(topic: str, headlines: list[str]) -> str:
     chain = prompt | llm
-    return chain.invoke({
-        "company": company,
+    result = chain.invoke({
+        "topic": topic,
         "headlines": "\n".join(headlines)
     })
+    return result.content.strip() if hasattr(result, "content") else str(result)
+
