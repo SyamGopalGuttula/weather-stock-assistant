@@ -6,14 +6,16 @@ A command-line assistant powered by **LangGraph**, **LangChain**, and **Google G
 - Getting live stock prices (via yfinance)
 - Summarizing financial news and general topics (via Gemini)
 - Smart routing using an LLM-based router agent
+- Answering general knowledge questions (via Gemini)
 - Flow control using LangGraph
 
 ---
 
 ## Features
 
-- LLM-powered company/topic/city extraction (no hardcoding)
+- LLM-powered company/topic/city extraction
 - Multi-agent routing via LangGraph
+- Supports general questions using Gemini
 - Modular, testable structure
 - Built for future UI and RAG integrations
 
@@ -42,8 +44,13 @@ cd weather-stock-assistant
 ### 2. Create virtual environment
 
 ```bash
+# On Windows
 py -3.11 -m venv venv
-.venv\Scripts\Activate  # On Windows
+.venv\Scripts/Activate
+
+# On Mac/Linux
+python3.11 -m venv venv
+source venv/bin/activate
 ```
 
 ### 3. Install dependencies
@@ -87,6 +94,8 @@ Try queries like:
 - `Show me Amazon stock price`
 - `Give me news about Elon Musk`
 - `What's happening in AI?`
+- `Who is the CEO of Tesla?`
+- `Tell me a joke`
 
 ---
 
@@ -98,6 +107,7 @@ weather-stock-assistant/
 │   ├── weather_agent.py
 │   ├── stock_agent.py
 │   ├── news_agent.py
+│   ├── general_agent.py
 │   └── router_agent.py
 ├── tools/
 │   ├── weather_tool.py
@@ -116,12 +126,13 @@ weather-stock-assistant/
 
 ## How It Works
 
-- The `router_agent` uses Gemini to classify intent (weather, stock, news)
-- LangGraph routes to the correct agent based on that intent
+- The `router_agent` uses Gemini to classify intent:
+  - "weather", "stock", "news", or "general"
+- LangGraph routes the query to the appropriate agent
 - Each agent:
-  - Extracts keywords or entities with Gemini
-  - Calls the correct tool (e.g., OpenWeatherMap, yfinance)
-- Output is printed to terminal
+  - Uses Gemini to extract or interpret input
+  - Calls its tool (e.g., weather API, yfinance)
+- General agent answers open-ended queries via Gemini
 
 ---
 
