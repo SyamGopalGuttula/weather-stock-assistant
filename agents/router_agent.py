@@ -15,10 +15,11 @@ You are a routing assistant. Your job is to decide which type of query this is:
 - If it's asking about current weather, return "weather"
 - If it's asking about a stock or ticker symbol, return "stock"
 - If it's asking for news, headlines, or summaries, return "news"
+- If it's anything else (like general questions, jokes, definitions, or facts), return "general"
 
 User query: {input}
 
-Only return one word: "weather", "stock", or "news".
+Only return one word: "weather", "stock", "news", or "general".
 """)
 
 router_chain = prompt | llm

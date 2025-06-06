@@ -6,6 +6,7 @@ from agents.weather_agent import weather_agent
 from agents.stock_agent import stock_agent
 from agents.news_agent import news_agent
 from agents.router_agent import router_agent
+from agents.general_agent import general_agent
 
 # Define the state schema
 class GraphState(TypedDict):
@@ -21,6 +22,8 @@ agent_map = {
     "weather": weather_agent,
     "stock": stock_agent,
     "news": news_agent,
+    "general": general_agent,
+
 }
 
 # Node logic: router + call agent
