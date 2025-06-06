@@ -1,6 +1,9 @@
-langchain
-langgraph
-langchain-google-genai
-yfinance
-requests
-python-dotenv
+langchain==0.1.16
+langgraph>=0.0.28
+langchain-google-genai==0.0.8
+google-generativeai==0.3.2
+protobuf==4.25.3
+yfinance>=0.2.37
+requests>=2.31.0
+python-dotenv>=1.0.1
+numpy==1.26.4
