@@ -42,7 +42,7 @@ cd weather-stock-assistant
 ### 2. Create virtual environment
 
 ```bash
-python -m venv venv
+py -3.11 -m venv venv
 .venv\Scripts\Activate  # On Windows
 ```
 
